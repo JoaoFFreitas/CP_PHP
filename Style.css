@@ -1,0 +1,173 @@
+:root {
+    --blue: #1e90ff;
+    --white: #ffffff;
+    --header-height: 50px;
+    --body-height: 10px;
+  }
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+   
+}
+html, body{
+    height: 100%;
+}
+body{
+    box-sizing: border-box;
+    background-image: url(images/background.jpeg);
+    background-repeat: repeat-y;
+    background-size:cover;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+  text-decoration: underline;
+  font-size: 18px;
+}
+h2{
+  text-align: center;
+  padding-bottom: 30px;
+  font-size: 45px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    position: fixed;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    height: var(--header-height);
+    align-items: center;
+    z-index: 1;
+    color: white;
+    
+}
+
+.nav-item{
+    list-style-type: none;
+}
+.images {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+#portTitle {
+  margin: auto;
+  text-align: center;
+}
+
+.caixa {
+  width: 50%;
+  margin: auto;
+  color: black;
+}
+.caixa a{
+  color: black;
+}
+.caixa a:hover{
+  font-size: 19px;
+}
+
+#form {
+  margin: auto;
+  width: 600px;
+  border: 2px solid rgb(84, 84, 84);
+  border-radius: 25px;
+  box-shadow: 5px 8px rgb(84, 84, 84);
+  padding: 50px;
+  background-color: rgb(159, 159, 159);
+}
+.contact {
+  width: 350px;
+  margin: auto;
+}
+
+.contactForm {
+  padding: 20px 10px;
+  margin: auto;
+  margin-top: 20px;
+  width: 350px;
+  display: grid;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 8px rgb(84, 84, 84);
+  background-color: rgb(159, 159, 159);
+
+}
+.contactForm #button{
+  width: 150px;
+  margin: auto;
+  height: 50px;
+  background-color: rgb(84, 84, 84);
+  border-radius: 5px;
+}
+
+.contentWrapper{
+    padding-top: calc(var(--header-height) + var(--body-height));
+}
+
+.fa-solid.fa-check{
+  display: none;
+  color: green;
+  margin-left: 5px;
+  font-weight: bold;
+}
+.fa-solid.fa-xmark{
+  display: inline-block;
+  color: red;
+  margin-left: 5px;
+  font-weight: bold;
+}
+#total{
+  font-size: 30px;
+}
+
+#myMap{
+  width:600px; 
+  height:375px;
+  margin: auto;
+  display: flex;
+  z-index: 0;
+  border: 1px solid black;
+  margin-top: 20px;
+}
+p a:hover{
+  font-size: 18px;
+  color: black;
+}
+p a{
+  color: black;
+}
+#geo{
+  margin: auto;
+  text-align: center;
+  padding-top: 20px;
+  width: 350px;
+}
+footer{
+  color: rgb(159, 159, 159);
+  font-size: 18px;
+  margin-left: 30px;
+  text-decoration: underline;
+  font-style: italic;
+}
+.marca{
+  color: red;
+}
+#obrigatorio{
+  font-size: 10px;
+  margin: auto;
+}
+.noticiaTitulo{
+  text-decoration: underline;
+  font-size: 32px;
+}
+.noticiaContent{
+  font-style: italic;
+  font-size: 18px;
+}
