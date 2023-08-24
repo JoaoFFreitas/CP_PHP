@@ -178,9 +178,11 @@ if (empty($nomedeutilizador)) {
 
       if ($resultado->num_rows > 0) {
         while ($row = $resultado->fetch_assoc()) {
+          echo "<div class='uploadedImg'>";
           echo "<h3>" . $row['title'] . "</h3>";
           echo "<a class='example-image-link' href=" . $row['pasta'] . " data-lightbox='example-1'>";
-          echo "<img class='example-image' src=" . $row['pasta'] . " alt='image-1' width='400px' /></a>";
+          echo "<img class='example-image' src=" . $row['pasta'] . " alt='image-1' width='700px' /></a>";
+          echo "</div>";
         }
       }
       $conn->close();

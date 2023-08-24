@@ -120,7 +120,42 @@ if (empty($nomedeutilizador)) {
                     <option value="">utilizador</option>
                 </select>
                 <input id="button" type="submit" name="submit" value="Alterar Nível de acessos" style="margin-top: 20px;"> <br>
+                <?php
+                $hostname = 'localhost';
+                $username = 'root';
+                $password = 'root';
+                $dbname = 'CP_PHP';
+
+                $conn = @mysqli_connect($hostname, $username, $password, $dbname);
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                } else {
+                };
+
+                session_start();
+                $nomedeutilizador = $_SESSION["nome_utilizador"];
+                if (!empty($nomedeutilizador)) {
+                    $query = "SELECT * FROM utilizadores WHERE nivel = 'admin' ";
+
+                    $resultado = $conn->query($query);
+
+                    if ($resultado->num_rows > 0) {
+                        echo '<table class="tableOrc">';
+                        echo '<tr><th>Administradores</th></tr>';
+
+                        while ($row = $resultado->fetch_assoc()) {
+                            echo '<tr>';
+                            echo '<td class="tabelaOrcamento">' . $row['utilizadores'] . '</td>';
+                            echo '</tr>';
+                        }
+                        echo '</table>';
+                    }
+                } ?>
+
             </form>
+            <div>
+
+            </div>
         </div>
         <div>
             <form action="insertNews.php" class="contactForm admin" method="post">

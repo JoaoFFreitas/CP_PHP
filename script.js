@@ -22,6 +22,7 @@
   xhttp.open("GET", "rss.xml", true);
   xhttp.send();
 }*/
+var valorFinal = "";
 
 function validate() {
   var formato = document.getElementById("formato").value;
@@ -33,7 +34,6 @@ function validate() {
   var nome = document.getElementById("name");
   var apelido = document.getElementById("lName");
   var numero = document.getElementById("number");
-
 
   nome.addEventListener("input", function (n) {
     var patern = /^[\w]{3,15}$/g;
@@ -112,10 +112,8 @@ function validate() {
     valorFinal = parseFloat(valorTotal.toFixed(2));
     document.getElementById("total").innerHTML =
       valorFinal + "€/mês (inclui desconto de 20%)";
-  };
-
-  };
-
+  }
+}
 
 function carregarMapa() {
   var ponto = new google.maps.LatLng(38.733573, -9.14114);

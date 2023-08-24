@@ -33,5 +33,6 @@ if (password_verify($userPassword, $row["palavraChave"])) {
 
     exit();
 } else {
+    header("Location: index.php");
 }
 $conn->close();

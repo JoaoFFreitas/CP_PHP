@@ -171,3 +171,48 @@ footer{
   font-style: italic;
   font-size: 18px;
 }
+.tableOrc th{
+  border: 1px solid black;
+  text-align: center;
+  margin: auto;
+  
+}
+
+#formOrcamento {
+  margin: auto;
+  display: table;
+  border: 2px solid rgb(84, 84, 84);
+  border-radius: 25px;
+  box-shadow: 5px 8px rgb(84, 84, 84);
+  padding: 50px;
+  background-color: rgb(159, 159, 159);
+}
+#formOrcamento #button {
+  width: 150px;
+  margin: auto;
+  height: 50px;
+  background-color: rgb(84, 84, 84);
+  border-radius: 5px;
+}
+#formOrcamento td{
+  padding: 5px;
+  border: 1px solid rgb(84, 84, 84);
+  border-radius: 5px;
+  color: black;
+}
+#formOrcamento th{
+  padding: 5px;
+  border: 1px solid rgb(84, 84, 84);
+  border-radius: 5px;
+  color: black;
+}
+.uploadedImg{
+  margin: auto;
+  display: table;
+  text-align: center;
+  padding-bottom: 50px;
+}
+.tableOrc td{
+  margin: auto;
+  text-align: center;
+}

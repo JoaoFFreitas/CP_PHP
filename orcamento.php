@@ -1,10 +1,21 @@
 <?php
+$hostname = 'localhost';
+$username = 'root';
+$password = 'root';
+$dbname = 'CP_PHP';
+
+$conn = @mysqli_connect($hostname, $username, $password, $dbname);
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+} else {
+};
+
 session_start();
 $nomedeutilizador = $_SESSION["nome_utilizador"];
 if (empty($nomedeutilizador)) {
   $nomedeutilizador = "Área Pessoal";
 };
-$query = "SELECT * FROM Clientes WHERE user_id = " . $_SESSION["utilizador"];
+
 ?>
 
 
@@ -66,8 +77,8 @@ $query = "SELECT * FROM Clientes WHERE user_id = " . $_SESSION["utilizador"];
   <div class="contentWrapper">
     <h2>Dados</h2>
 
-    <div id="form">
-      <form action="dadosOrcamento.php" onchange="validate()" onsubmit="valor()"  method="POST">
+    <div id="formOrcamento">
+      <form action="dadosOrcamento.php" onchange="validate()" onsubmit="valor()" method="POST">
         Nome: <input type="text" id="name" name="nome" required><span><i id="notok" class="fa-solid fa-xmark"></i><i id="ok" class="fa-solid fa-check"></i></span>
         <br>
         Apelido: <input type="text" id="lName" name="lName" required><span><i id="notok1" class="fa-solid fa-xmark"></i><i id="ok1" class="fa-solid fa-check"></i></span> <br>
@@ -95,9 +106,58 @@ $query = "SELECT * FROM Clientes WHERE user_id = " . $_SESSION["utilizador"];
         <h4 id="total" name="total"></h4> <br>
 
         <input id="button" type="submit" value="Enviar Orçamento" style="margin-top: 20px;">
+        <?php
+        $hostname = 'localhost';
+        $username = 'root';
+        $password = 'root';
+        $dbname = 'CP_PHP';
+
+        $conn = @mysqli_connect($hostname, $username, $password, $dbname);
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        } else {
+        };
+
+        session_start();
+        $nomedeutilizador = $_SESSION["nome_utilizador"];
+        if (!empty($nomedeutilizador)) {
+          $query = "SELECT * FROM projetos WHERE utilizador = '$nomedeutilizador' ORDER BY id DESC LIMIT 5";;
+
+          $resultado = $conn->query($query);
+
+          if ($resultado->num_rows > 0) {
+            echo '<br><br>';
+            echo '<table class="tableOrc">';
+            echo '<tr><th>Ultimos 5 orçamentos:</th></tr> <br>';
+            echo '<tr><th>Utilizador</th><th>Nome</th><th>Apelido</th><th>Número</th><th>Formato</th><th>Prazo(meses)</th><th>Quem Somos</th><th>Onde estamos</th><th>Galeria</th><th>eCommerce</th><th>Gestão Interna</th><th>Notícias</th><th>Redes Sociais</th><th>Valor</th></tr>';
+
+            while ($row = $resultado->fetch_assoc()) {
+              echo '<tr>';
+              echo '<td class="tabelaOrcamento">' . $row['utilizador'] . '</td>';
+              echo '<td class="tabelaOrcamento">' . $row['nome'] . '</td>';
+              echo '<td class="tabelaOrcamento">' . $row['apelido'] . '</td>';
+              echo '<td class="tabelaOrcamento">' . $row['numero'] . '</td>';
+              echo '<td class="tabelaOrcamento">' . $row['formato'] . '</td>';
+              echo '<td class="tabelaOrcamento">' . $row['prazo'] . '</td>';
+              echo '<td class="tabelaOrcamento">' . $row['quem'] . '</td>';
+              echo '<td class="tabelaOrcamento">' . $row['onde'] . '</td>';
+              echo '<td class="tabelaOrcamento">' . $row['galeria'] . '</td>';
+              echo '<td class="tabelaOrcamento">' . $row['eCommerce'] . '</td>';
+              echo '<td class="tabelaOrcamento">' . $row['gestao'] . '</td>';
+              echo '<td class="tabelaOrcamento">' . $row['noticias'] . '</td>';
+              echo '<td class="tabelaOrcamento">' . $row['social'] . '</td>';
+              echo '<td class="tabelaOrcamento">' . $row['valor'] . '</td>';
+              echo '</tr>';
+            }
+            echo '</table>';
+          }
+        }
+
+        ?>
+
       </form>
 
-      
+
     </div>
   </div>
 
